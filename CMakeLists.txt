@@ -23,9 +23,16 @@
 cmake_minimum_required(VERSION 3.10)
 project(spinlock)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 add_library(spinlock INTERFACE)
 target_include_directories(spinlock INTERFACE include)
+target_sources(spinlock
+  INTERFACE
+    $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include/spinlock/spinlock.h>
+    $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include/spinlock/shared_spinlock.h>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/spinlock/spinlock.h>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/spinlock/shared_spinlock.h>
+)
 
 add_subdirectory(tests)

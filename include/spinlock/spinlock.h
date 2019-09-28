@@ -49,7 +49,7 @@ class SpinLock {
   std::atomic_flag locked{ATOMIC_FLAG_INIT};
 
  public:
-  SpinLock() noexcept = default;
+  constexpr SpinLock() noexcept = default;
   ~SpinLock() noexcept = default;
 
   SpinLock(SpinLock&) = delete;
@@ -75,7 +75,7 @@ class SpinLock_Yield {
   std::atomic_flag locked{ATOMIC_FLAG_INIT};
 
  public:
-  SpinLock_Yield() noexcept = default;
+  constexpr SpinLock_Yield() noexcept = default;
   ~SpinLock_Yield() noexcept = default;
 
   SpinLock_Yield(SpinLock_Yield&) = delete;
@@ -102,7 +102,7 @@ class SpinLock_MemoryOrder {
   std::atomic_flag locked{ATOMIC_FLAG_INIT};
 
  public:
-  SpinLock_MemoryOrder() noexcept = default;
+  constexpr SpinLock_MemoryOrder() noexcept = default;
   ~SpinLock_MemoryOrder() noexcept = default;
 
   SpinLock_MemoryOrder(SpinLock_MemoryOrder&) = delete;
@@ -128,7 +128,7 @@ class SpinLock_MemoryOrder_Yield {
   std::atomic_flag locked{ATOMIC_FLAG_INIT};
 
  public:
-  SpinLock_MemoryOrder_Yield() noexcept = default;
+  constexpr SpinLock_MemoryOrder_Yield() noexcept = default;
   ~SpinLock_MemoryOrder_Yield() noexcept = default;
 
   SpinLock_MemoryOrder_Yield(SpinLock_MemoryOrder_Yield&) = delete;
